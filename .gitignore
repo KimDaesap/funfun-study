@@ -1,0 +1,5 @@
+algorithm/*/.idea/
+algorithm/*/*.iml
+algorithm/*/target/
+algorithm/*/project/target/
+

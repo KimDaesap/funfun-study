@@ -12,7 +12,7 @@ object Colors extends Enumeration {
   val Red, Green, Blue = Value
   val size = values.size
   type Color = Value
-  implicit def toInt(c: Colors.Value): Int = c.id
+  implicit def toInt(c: Color): Int = c.id
   implicit class ColorOps(color: Color) {
     def left: Color = Colors((color + 2) % size)
     def right: Color = Colors((color + 1) % size)
@@ -36,7 +36,10 @@ object RgbDistance {
 
     inputs match {
       case Nil => throw new Exception("empty inputs")
-      case h :: t => List(loop(Red, h(Red), t), loop(Green, h(Green), t), loop(Green, h(Green), t)).min
+      case h :: t =>
+        List(loop(Red, h(Red), t),
+          loop(Green, h(Green), t),
+          loop(Green, h(Green), t)).min
     }
   }
 }
